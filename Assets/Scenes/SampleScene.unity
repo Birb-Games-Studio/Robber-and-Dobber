@@ -156,7 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5d582fdf544e84d8dff955464dd912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 5
+  turnSpeed: 1
 --- !u!54 &327492103
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -588,7 +589,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904079452}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 574450c1209e3f6458377b233c22fe1d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
