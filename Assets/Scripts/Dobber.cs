@@ -6,13 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Dobber : MonoBehaviour
 {
-
     Rigidbody rb;
     PlayerControls playerControls;
     float moveHorizontal;
     float moveVertical;
     [SerializeField]
     float moveSpeed;
+    [SerializeField]
+    float turnSpeed;
 
     void Awake()
     {
@@ -26,12 +27,17 @@ public class Dobber : MonoBehaviour
         playerControls.DobberControls.Enable();
     }
 
+    private void FixedUpdate()
+    {
+        Move();
+
+    }
+
     void Update()
     {
-        #region calls to other voids
+#region calls to other voids
         Inputs();
-        Move();
-        #endregion
+#endregion
     }
 
     //this void assignes values to input virables
@@ -46,9 +52,11 @@ public class Dobber : MonoBehaviour
     void Move()
     {
         //new Vector3 for calculating movement values
-        Vector3 move = new Vector3(moveHorizontal * 100 * moveSpeed * Time.deltaTime, rb.velocity.y, moveVertical * 100 * moveSpeed * Time.deltaTime);
+        Vector3 move = new Vector3(0, 0, moveVertical * 100 * moveSpeed * Time.deltaTime);
+        Quaternion rotate = Quaternion.Euler(transform.rotation.x, moveHorizontal * 100 * turnSpeed * Time.deltaTime, transform.rotation.z);
         //here we apply the movement related to the rotation of player
         rb.velocity = transform.right * move.x + transform.up * move.y + transform.forward * move.z;
+        gameObject.transform.rotation = transform.rotation * rotate;
 
     }
 }
