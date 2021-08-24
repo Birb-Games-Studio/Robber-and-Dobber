@@ -156,7 +156,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Run"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""d1f99bf2-4c7d-4878-a413-914bf7c51c52"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
