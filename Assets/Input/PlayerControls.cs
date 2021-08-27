@@ -185,6 +185,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ArmTrap"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb854b7a-e668-4da2-881f-a497ea520985"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -284,6 +292,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a9e47c1-be56-4466-aa0e-e22ba0fe4a4b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ArmTrap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -469,6 +488,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_DobberControls_Sneak = m_DobberControls.FindAction("Sneak", throwIfNotFound: true);
         m_DobberControls_Interact = m_DobberControls.FindAction("Interact", throwIfNotFound: true);
         m_DobberControls_Attack = m_DobberControls.FindAction("Attack", throwIfNotFound: true);
+        m_DobberControls_ArmTrap = m_DobberControls.FindAction("ArmTrap", throwIfNotFound: true);
         // RobberControls
         m_RobberControls = asset.FindActionMap("RobberControls", throwIfNotFound: true);
         m_RobberControls_Walk = m_RobberControls.FindAction("Walk", throwIfNotFound: true);
@@ -587,6 +607,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_DobberControls_Sneak;
     private readonly InputAction m_DobberControls_Interact;
     private readonly InputAction m_DobberControls_Attack;
+    private readonly InputAction m_DobberControls_ArmTrap;
     public struct DobberControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -596,6 +617,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Sneak => m_Wrapper.m_DobberControls_Sneak;
         public InputAction @Interact => m_Wrapper.m_DobberControls_Interact;
         public InputAction @Attack => m_Wrapper.m_DobberControls_Attack;
+        public InputAction @ArmTrap => m_Wrapper.m_DobberControls_ArmTrap;
         public InputActionMap Get() { return m_Wrapper.m_DobberControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -620,6 +642,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnAttack;
+                @ArmTrap.started -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnArmTrap;
+                @ArmTrap.performed -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnArmTrap;
+                @ArmTrap.canceled -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnArmTrap;
             }
             m_Wrapper.m_DobberControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -639,6 +664,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @ArmTrap.started += instance.OnArmTrap;
+                @ArmTrap.performed += instance.OnArmTrap;
+                @ArmTrap.canceled += instance.OnArmTrap;
             }
         }
     }
@@ -731,6 +759,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSneak(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnArmTrap(InputAction.CallbackContext context);
     }
     public interface IRobberControlsActions
     {

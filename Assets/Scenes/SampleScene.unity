@@ -690,6 +690,7 @@ GameObject:
   - component: {fileID: 327492103}
   - component: {fileID: 327492102}
   - component: {fileID: 327492107}
+  - component: {fileID: 327492109}
   m_Layer: 3
   m_Name: Dobber
   m_TagString: Player
@@ -709,8 +710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5d582fdf544e84d8dff955464dd912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  sprintSpeed: 3
+  inputReferences: {fileID: 327492109}
+  moveSpeed: 2
+  sprintSpeed: 4
   turnSpeed: 5
 --- !u!54 &327492103
 Rigidbody:
@@ -785,7 +787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327492101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.02, z: 0}
+  m_LocalPosition: {x: -2.11, y: 1.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 538642876}
@@ -803,9 +805,21 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &327492109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327492101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8459aa7dda3b68a4091ac26c935c9207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &461855388
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,8 +964,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461855388}
-  m_LocalRotation: {x: 0.27059805, y: -0.65328145, z: 0.27059805, w: 0.65328157}
-  m_LocalPosition: {x: 10, y: 12.02, z: 0}
+  m_LocalRotation: {x: 0.27059808, y: -0.65328145, z: 0.27059802, w: 0.65328157}
+  m_LocalPosition: {x: 7.8900003, y: 11.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -968,7 +982,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20402
+  m_Name: pb_Mesh20720
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1243,8 +1257,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868555978}
-  m_LocalRotation: {x: 0.27059805, y: -0.65328145, z: 0.27059805, w: 0.65328157}
-  m_LocalPosition: {x: 10, y: 12.02, z: 0}
+  m_LocalRotation: {x: 0.27059808, y: -0.65328145, z: 0.27059802, w: 0.65328157}
+  m_LocalPosition: {x: 7.8900003, y: 11.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1706117571}
@@ -1353,7 +1367,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20314
+  m_Name: pb_Mesh20348
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1635,7 +1649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6c10dd1253711b4e832373429b08971, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.68
+      value: -0.263
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6c10dd1253711b4e832373429b08971, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1672,6 +1686,30 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6c10dd1253711b4e832373429b08971, type: 3}
       propertyPath: m_Name
       value: dobber
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754812699227853805, guid: f6c10dd1253711b4e832373429b08971, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754812699227853805, guid: f6c10dd1253711b4e832373429b08971, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754812699227853805, guid: f6c10dd1253711b4e832373429b08971, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754812699227853805, guid: f6c10dd1253711b4e832373429b08971, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754812699227853805, guid: f6c10dd1253711b4e832373429b08971, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754812699227853805, guid: f6c10dd1253711b4e832373429b08971, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c10dd1253711b4e832373429b08971, type: 3}
@@ -1897,6 +1935,7 @@ GameObject:
   - component: {fileID: 1945878214}
   - component: {fileID: 1945878213}
   - component: {fileID: 1945878212}
+  - component: {fileID: 1945878217}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Untagged
@@ -2190,7 +2229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945878210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -5}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2208,6 +2247,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f87e1001e495c48ad06e9fc0522894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSet: 0
+  showReachRangeSphere: 0
+  trapReachRangeDebugColor: {r: 1, g: 0, b: 0, a: 0.54901963}
+  showActivationReach: 0
+  trapActivationReachRangeDebugColor: {r: 1, g: 0.28652775, b: 0, a: 0.54901963}
+  showInteractionReach: 0
+  trapInteractionReachRangeDebugColor: {r: 0, g: 0.21038437, b: 1, a: 1}
+  isSet: 1
+  isActivated: 0
+  playerInRange: 0
+  robberInRange: 0
+  inputReferences: {fileID: 1945878217}
   unsetMaterial: {fileID: 2100000, guid: 79f64ed6f5d6d374d91c3a0af4070258, type: 2}
   setMaterial: {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6, type: 2}
+  trapType: Pinns
+  linkAllOffsets: 1
+  masterOffset: {x: 0.5, y: 0.5, z: -0.5}
+  trapInteractionRadiusOffset: {x: 0.5, y: 0.5, z: -0.5}
+  trapInteractionRadius: 1.5
+  trapActivationRangeOffset: {x: 0.5, y: 0.5, z: -0.5}
+  trapActivationRange: 2
+  trapRangeOffset: {x: 0.5, y: 0.5, z: -0.5}
+  trapRange: 5
+  hasActivationDelay: 0
+  trapActivationDelay: 0
+  isRechargable: 0
+  rechargeTime: 0
+  requieresPlayer: 0
+--- !u!114 &1945878217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945878210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8459aa7dda3b68a4091ac26c935c9207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
