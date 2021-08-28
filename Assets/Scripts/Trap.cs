@@ -151,8 +151,8 @@ public class Trap : MonoBehaviour
 
         if (robberInRange)
         {
+            isActivated = true;
             Debug.Log("The robber has set off the trap.");
-            isActivated = false;
             GetComponent<MeshRenderer>().sharedMaterial = unsetMaterial;
         }
         
