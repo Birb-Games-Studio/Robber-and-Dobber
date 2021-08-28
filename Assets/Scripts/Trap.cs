@@ -30,6 +30,9 @@ public class Trap : MonoBehaviour
 
     [Header("Trap settings")]
 
+    public LayerMask player;
+    public LayerMask robber;
+
     [Dropdown("trapTypes")]
     public string trapType;
     private string[] trapTypes = new string[] { "Pinns", "Rope", "Ladder", "Bear Trap", "Bannana Peal" };
@@ -103,20 +106,26 @@ public class Trap : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius))
+        if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius, player))
         {
 
-            switch (interacted)
-            {
-                  case 1:
-                    Debug.Log("trap collected");
-                    isSet = false;
-                    GetComponent<MeshRenderer>().sharedMaterial = setMaterial;
-                    break;
-                case 0:
-                    //Debug.Log("player in range");
-                    break;
-            }
+            playerInRange = true;
+
+        }
+        else
+        {
+            playerInRange = false;
+        }
+
+        if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius, player))
+        {
+
+            playerInRange = true;
+
+        }
+        else
+        {
+            playerInRange = false;
         }
     }
 
@@ -127,7 +136,17 @@ public class Trap : MonoBehaviour
 
         if (playerInRange)
         {
-
+            switch (interacted)
+            {
+                case 1:
+                    Debug.Log("trap collected");
+                    isSet = false;
+                    GetComponent<MeshRenderer>().sharedMaterial = setMaterial;
+                    break;
+                case 0:
+                    //Debug.Log("player in range");
+                    break;
+            }
         }
 
         if (robberInRange)
