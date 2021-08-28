@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44658136, g: 0.4964158, b: 0.57481986, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465829, g: 0.49641728, b: 0.57482105, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -787,7 +787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327492101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.11, y: 1.577, z: 0}
+  m_LocalPosition: {x: -6.6099997, y: 1.577, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 538642876}
@@ -964,8 +964,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461855388}
-  m_LocalRotation: {x: 0.27059808, y: -0.65328145, z: 0.27059802, w: 0.65328157}
-  m_LocalPosition: {x: 7.8900003, y: 11.577, z: 0}
+  m_LocalRotation: {x: 0.27059808, y: -0.65328145, z: 0.270598, w: 0.65328157}
+  m_LocalPosition: {x: 3.3900003, y: 11.577, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -982,7 +982,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20720
+  m_Name: pb_Mesh19702
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1257,8 +1257,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868555978}
-  m_LocalRotation: {x: 0.27059808, y: -0.65328145, z: 0.27059802, w: 0.65328157}
-  m_LocalPosition: {x: 7.8900003, y: 11.577, z: 0}
+  m_LocalRotation: {x: 0.27059808, y: -0.65328145, z: 0.270598, w: 0.65328157}
+  m_LocalPosition: {x: 3.3900003, y: 11.577, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1706117571}
@@ -1367,7 +1367,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20348
+  m_Name: pb_Mesh19608
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1649,7 +1649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6c10dd1253711b4e832373429b08971, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.263
+      value: -0.275
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6c10dd1253711b4e832373429b08971, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1914,7 +1914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729498772}
   m_LocalRotation: {x: -0, y: 0.70710707, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: -3.4099998, y: 2.02, z: -2.3399994}
+  m_LocalPosition: {x: -6.41, y: 2.02, z: -2.3399994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1472737032}
@@ -2247,11 +2247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f87e1001e495c48ad06e9fc0522894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showReachRangeSphere: 0
-  trapReachRangeDebugColor: {r: 1, g: 0, b: 0, a: 0.54901963}
-  showActivationReach: 0
-  trapActivationReachRangeDebugColor: {r: 1, g: 0.28652775, b: 0, a: 0.54901963}
-  showInteractionReach: 0
+  showReachRangeSphere: 1
+  trapReachRangeDebugColor: {r: 1, g: 0, b: 0, a: 0.1254902}
+  showActivationReach: 1
+  trapActivationReachRangeDebugColor: {r: 1, g: 0.28652775, b: 0, a: 0.3764706}
+  showInteractionReach: 1
   trapInteractionReachRangeDebugColor: {r: 0, g: 0.21038437, b: 1, a: 1}
   isSet: 1
   isActivated: 0
