@@ -108,24 +108,22 @@ public class Trap : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius, player))
         {
-
             playerInRange = true;
-
         }
         else
         {
             playerInRange = false;
         }
 
-        if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius, player))
+        if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius, robber))
         {
 
-            playerInRange = true;
+            robberInRange = true;
 
         }
         else
         {
-            playerInRange = false;
+            robberInRange = false;
         }
     }
 
@@ -151,31 +149,11 @@ public class Trap : MonoBehaviour
 
         if (robberInRange)
         {
-            isActivated = true;
             Debug.Log("The robber has set off the trap.");
+            isActivated = true;
             GetComponent<MeshRenderer>().sharedMaterial = unsetMaterial;
         }
         
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            playerInRange = true;
-        }
-        else
-        {
-            playerInRange = false;
-        }
-
-        if (other.tag == "Robber" && isSet)
-        {
-            robberInRange = true;
-        }
-        else
-        {
-            robberInRange = false;
-        }
-    }
 }
