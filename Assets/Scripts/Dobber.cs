@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerInputReferences;
 
 //requiered components
 [RequireComponent(typeof(Rigidbody))]
 public class Dobber : MonoBehaviour
 {
+    
     Rigidbody rb;
-    PlayerControls playerControls;
+    public InputReferences inputReferences;
+    public PlayerControls playerControls;
     float moveHorizontal;
     float moveVertical;
     [SerializeField]
@@ -19,8 +22,8 @@ public class Dobber : MonoBehaviour
     float isRunning;
     void Awake()
     {
-        playerControls = new PlayerControls();
         rb = gameObject.GetComponent<Rigidbody>();
+        playerControls = new PlayerControls();
         playerControls.DobberControls.Enable();
     }
 
@@ -41,9 +44,9 @@ public class Dobber : MonoBehaviour
     void Inputs()
     {
         //reading the Vector2 value and assigning it to moveHorizontal and moveVertical
-        moveHorizontal = playerControls.DobberControls.Walk.ReadValue<Vector2>().x;
-        moveVertical = playerControls.DobberControls.Walk.ReadValue<Vector2>().y;
-        isRunning = playerControls.DobberControls.Run.ReadValue<float>();
+        moveHorizontal = inputReferences.playerControls.DobberControls.Walk.ReadValue<Vector2>().x;
+        moveVertical = inputReferences.playerControls.DobberControls.Walk.ReadValue<Vector2>().y;
+        isRunning = inputReferences.playerControls.DobberControls.Run.ReadValue<float>();
 
     }
 
