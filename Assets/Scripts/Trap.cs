@@ -6,10 +6,6 @@ using NaughtyAttributes;
 
 public class Trap : MonoBehaviour
 {
-
-
-
-
     [Header("Debug")]
 
     public bool showReachRangeSphere;
@@ -26,7 +22,7 @@ public class Trap : MonoBehaviour
     public bool isActivated;
     public bool playerInRange;
     public bool robberInRange;
-    public PlayerControls.DobberControlsActions dobberControls;
+    public PlayerControls dobberControls;
     public InputReferences inputReferences;
     public Material unsetMaterial;
     public Material setMaterial;
@@ -101,7 +97,7 @@ public class Trap : MonoBehaviour
 
     private void Awake()
     {
-        dobberControls = new PlayerControls.DobberControlsActions();
+        dobberControls = new PlayerControls();
         dobberControls.Enable();
     }
 
@@ -109,11 +105,10 @@ public class Trap : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius))
         {
+
             switch (interacted)
             {
-                
-
-                case 1:
+                  case 1:
                     Debug.Log("trap collected");
                     isSet = false;
                     GetComponent<MeshRenderer>().sharedMaterial = setMaterial;
@@ -139,7 +134,7 @@ public class Trap : MonoBehaviour
         {
             Debug.Log("The robber set off the trap.");
             isActivated = false;
-            this.GetComponent<MeshRenderer>().sharedMaterial = unsetMaterial;
+            GetComponent<MeshRenderer>().sharedMaterial = unsetMaterial;
         }
         
     }
