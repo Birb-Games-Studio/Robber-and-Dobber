@@ -1525,6 +1525,52 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1449662312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1449662314}
+  - component: {fileID: 1449662313}
+  m_Layer: 0
+  m_Name: WkurwHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1449662313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449662312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38918a99291c1d74db80e6685fdc39c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  anger: 0
+  fear: 0
+--- !u!4 &1449662314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449662312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.344179, y: 7.2330303, z: -0.9402442}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472737031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,7 +1583,7 @@ GameObject:
   - component: {fileID: 1472737035}
   - component: {fileID: 1472737034}
   - component: {fileID: 1472737033}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1820,7 +1866,7 @@ GameObject:
   - component: {fileID: 1729498776}
   - component: {fileID: 1729498775}
   - component: {fileID: 1729498773}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Robber
   m_TagString: Robber
   m_Icon: {fileID: 0}
@@ -2253,14 +2299,20 @@ MonoBehaviour:
   trapActivationReachRangeDebugColor: {r: 1, g: 0.28652775, b: 0, a: 0.3764706}
   showInteractionReach: 1
   trapInteractionReachRangeDebugColor: {r: 0, g: 0.21038437, b: 1, a: 1}
-  isSet: 1
-  isActivated: 0
+  isSet: 0
+  wasUsed: 0
   playerInRange: 0
   robberInRange: 0
   inputReferences: {fileID: 1945878217}
   unsetMaterial: {fileID: 2100000, guid: 79f64ed6f5d6d374d91c3a0af4070258, type: 2}
   setMaterial: {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6, type: 2}
-  trapType: Pinns
+  player:
+    serializedVersion: 2
+    m_Bits: 8
+  robber:
+    serializedVersion: 2
+    m_Bits: 64
+  trapType: Pins
   linkAllOffsets: 1
   masterOffset: {x: 0.5, y: 0.5, z: -0.5}
   trapInteractionRadiusOffset: {x: 0.5, y: 0.5, z: -0.5}
@@ -2271,8 +2323,6 @@ MonoBehaviour:
   trapRange: 5
   hasActivationDelay: 0
   trapActivationDelay: 0
-  isRechargable: 0
-  rechargeTime: 0
   requieresPlayer: 0
 --- !u!114 &1945878217
 MonoBehaviour:

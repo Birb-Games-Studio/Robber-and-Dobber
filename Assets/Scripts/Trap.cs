@@ -19,7 +19,7 @@ public class Trap : MonoBehaviour
     public Color trapInteractionReachRangeDebugColor;
 
     public bool isSet;
-    public bool isActivated;
+    public bool wasUsed;
     public bool playerInRange;
     public bool robberInRange;
     public PlayerControls dobberControls;
@@ -35,7 +35,7 @@ public class Trap : MonoBehaviour
 
     [Dropdown("trapTypes")]
     public string trapType;
-    private string[] trapTypes = new string[] { "Pinns", "Rope", "Ladder", "Bear Trap", "Bannana Peal" };
+    private string[] trapTypes = new string[] { "Pins", "Rope", "Ladder", "Bear Trap", "Bannana Peel" };
 
     public bool linkAllOffsets;
 
@@ -57,10 +57,6 @@ public class Trap : MonoBehaviour
     
     [ShowIf("hasActivationDelay")]
     public float trapActivationDelay;
-    public bool isRechargable;
-    
-    [ShowIf("isRechargable")]
-    public float rechargeTime;
     public bool requieresPlayer;
 
 
@@ -117,15 +113,43 @@ public class Trap : MonoBehaviour
             playerInRange = false;
         }
 
-        if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius, player))
+        if (Physics.CheckSphere(transform.position + trapInteractionRadiusOffset, trapInteractionRadius, robber))
         {
 
-            playerInRange = true;
+            robberInRange = true;
+
+            // private string[] trapTypes = new string[] { "Pins", "Rope", "Ladder", "Bear Trap", "Bannana Peel" };
+            switch (trapType)
+            {
+                case "Pins":
+
+                    break;
+
+                case "Rope":
+
+                    break;
+
+                case "Ladder":
+
+                    break;
+
+                case "Bear Trap":
+
+                    break;
+
+                case "Bannana Peel":
+
+                    break;
+
+                default:
+                    Debug.LogError("Unknown trap type. Make sure it's added to the switch statement in FixedUpdate, and not just the context menu. And make sure there aren't any types *looks at nimfer*", this);
+                    break;
+            }
 
         }
         else
         {
-            playerInRange = false;
+            robberInRange = false;
         }
     }
 
@@ -134,13 +158,13 @@ public class Trap : MonoBehaviour
     {
         interacted = inputReferences.playerControls.DobberControls.Interact.ReadValue<float>();
 
-        if (playerInRange)
+        if (playerInRange && !isSet)
         {
             switch (interacted)
             {
                 case 1:
-                    Debug.Log("trap collected");
-                    isSet = false;
+                    Debug.Log("Trap set.");
+                    isSet = true;
                     GetComponent<MeshRenderer>().sharedMaterial = setMaterial;
                     break;
                 case 0:
@@ -149,33 +173,13 @@ public class Trap : MonoBehaviour
             }
         }
 
-        if (robberInRange)
+        if (robberInRange && isSet)
         {
-            isActivated = true;
             Debug.Log("The robber has set off the trap.");
             GetComponent<MeshRenderer>().sharedMaterial = unsetMaterial;
+            isSet = false;
+            wasUsed = true;
         }
         
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            playerInRange = true;
-        }
-        else
-        {
-            playerInRange = false;
-        }
-
-        if (other.tag == "Robber" && isSet)
-        {
-            robberInRange = true;
-        }
-        else
-        {
-            robberInRange = false;
-        }
     }
 }
