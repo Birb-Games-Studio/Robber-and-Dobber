@@ -201,6 +201,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ExitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""57948248-2c31-479b-a019-a542ee8d719f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -322,6 +330,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""InteractAlt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b53fd03a-58d9-460b-8ec9-ea527d8ff73a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -509,6 +528,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_DobberControls_InteractAlt = m_DobberControls.FindAction("InteractAlt", throwIfNotFound: true);
         m_DobberControls_Attack = m_DobberControls.FindAction("Attack", throwIfNotFound: true);
         m_DobberControls_ArmTrap = m_DobberControls.FindAction("ArmTrap", throwIfNotFound: true);
+        m_DobberControls_ExitGame = m_DobberControls.FindAction("ExitGame", throwIfNotFound: true);
         // RobberControls
         m_RobberControls = asset.FindActionMap("RobberControls", throwIfNotFound: true);
         m_RobberControls_Walk = m_RobberControls.FindAction("Walk", throwIfNotFound: true);
@@ -629,6 +649,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_DobberControls_InteractAlt;
     private readonly InputAction m_DobberControls_Attack;
     private readonly InputAction m_DobberControls_ArmTrap;
+    private readonly InputAction m_DobberControls_ExitGame;
     public struct DobberControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -640,6 +661,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @InteractAlt => m_Wrapper.m_DobberControls_InteractAlt;
         public InputAction @Attack => m_Wrapper.m_DobberControls_Attack;
         public InputAction @ArmTrap => m_Wrapper.m_DobberControls_ArmTrap;
+        public InputAction @ExitGame => m_Wrapper.m_DobberControls_ExitGame;
         public InputActionMap Get() { return m_Wrapper.m_DobberControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -670,6 +692,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ArmTrap.started -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnArmTrap;
                 @ArmTrap.performed -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnArmTrap;
                 @ArmTrap.canceled -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnArmTrap;
+                @ExitGame.started -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnExitGame;
+                @ExitGame.performed -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnExitGame;
+                @ExitGame.canceled -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnExitGame;
             }
             m_Wrapper.m_DobberControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -695,6 +720,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ArmTrap.started += instance.OnArmTrap;
                 @ArmTrap.performed += instance.OnArmTrap;
                 @ArmTrap.canceled += instance.OnArmTrap;
+                @ExitGame.started += instance.OnExitGame;
+                @ExitGame.performed += instance.OnExitGame;
+                @ExitGame.canceled += instance.OnExitGame;
             }
         }
     }
@@ -789,6 +817,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnInteractAlt(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnArmTrap(InputAction.CallbackContext context);
+        void OnExitGame(InputAction.CallbackContext context);
     }
     public interface IRobberControlsActions
     {

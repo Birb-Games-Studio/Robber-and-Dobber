@@ -38,7 +38,9 @@ public class Dobber : MonoBehaviour
     {
 #region calls to other voids
         Inputs();
-#endregion
+        #endregion
+
+        inputReferences.playerControls.DobberControls.ExitGame.performed += ctx => { Application.Quit(); };
     }
 
     //this void assignes values to input virables
