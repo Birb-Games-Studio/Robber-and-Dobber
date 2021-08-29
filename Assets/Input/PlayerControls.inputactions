@@ -166,6 +166,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "InteractAlt",
+                    "type": "Value",
+                    "id": "0491073d-6f79-4228-b4bb-49d85d0efa61",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold,Press"
+                },
+                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "7cf33650-4b55-4349-a6f9-7fec79820a36",
@@ -264,7 +272,7 @@
                     "name": "",
                     "id": "964fc1d3-50fd-40e6-999f-07835ad88e99",
                     "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
                     "action": "Interact",
@@ -290,6 +298,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ArmTrap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4983018d-e6ad-4296-b703-0edaf0c14f7e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Hold(duration=0.6)",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "InteractAlt",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

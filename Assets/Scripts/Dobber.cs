@@ -7,7 +7,7 @@ using PlayerInputReferences;
 [RequireComponent(typeof(Rigidbody))]
 public class Dobber : MonoBehaviour
 {
-    
+    public Animator dobberAnimator;
     Rigidbody rb;
     public InputReferences inputReferences;
     public PlayerControls playerControls;
@@ -20,9 +20,10 @@ public class Dobber : MonoBehaviour
     [SerializeField]
     float turnSpeed;
     float isRunning;
+
     void Awake()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         playerControls = new PlayerControls();
         playerControls.DobberControls.Enable();
     }
@@ -62,9 +63,27 @@ public class Dobber : MonoBehaviour
         {
             case 1:
                 move = new Vector3(0, rb.velocity.y, moveVertical * sprintSpeed);
+                dobberAnimator.SetBool("ReadyToRun", true);
+                if (move.y == 0 && move.x == 0 && move.z == 0)
+                {
+                    dobberAnimator.SetBool("Moving", false);
+                }
+                else
+                {
+                    dobberAnimator.SetBool("Moving", true);
+                }                
                 break;
             case 0:
                 move = new Vector3(0, rb.velocity.y, moveVertical * moveSpeed);
+                dobberAnimator.SetBool("ReadyToRun", false);
+                if (move.y == 0 && move.x == 0 && move.z == 0)
+                {
+                    dobberAnimator.SetBool("Moving", false);
+                }
+                else
+                {
+                    dobberAnimator.SetBool("Moving", true);
+                }
                 break;
         }
         rb.velocity = transform.right * move.x + transform.up * move.y + transform.forward * move.z;

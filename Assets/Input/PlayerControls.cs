@@ -179,6 +179,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""InteractAlt"",
+                    ""type"": ""Value"",
+                    ""id"": ""0491073d-6f79-4228-b4bb-49d85d0efa61"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Hold,Press""
+                },
+                {
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""7cf33650-4b55-4349-a6f9-7fec79820a36"",
@@ -277,7 +285,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""964fc1d3-50fd-40e6-999f-07835ad88e99"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Interact"",
@@ -303,6 +311,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ArmTrap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4983018d-e6ad-4296-b703-0edaf0c14f7e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": ""Hold(duration=0.6)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""InteractAlt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -487,6 +506,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_DobberControls_Run = m_DobberControls.FindAction("Run", throwIfNotFound: true);
         m_DobberControls_Sneak = m_DobberControls.FindAction("Sneak", throwIfNotFound: true);
         m_DobberControls_Interact = m_DobberControls.FindAction("Interact", throwIfNotFound: true);
+        m_DobberControls_InteractAlt = m_DobberControls.FindAction("InteractAlt", throwIfNotFound: true);
         m_DobberControls_Attack = m_DobberControls.FindAction("Attack", throwIfNotFound: true);
         m_DobberControls_ArmTrap = m_DobberControls.FindAction("ArmTrap", throwIfNotFound: true);
         // RobberControls
@@ -606,6 +626,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_DobberControls_Run;
     private readonly InputAction m_DobberControls_Sneak;
     private readonly InputAction m_DobberControls_Interact;
+    private readonly InputAction m_DobberControls_InteractAlt;
     private readonly InputAction m_DobberControls_Attack;
     private readonly InputAction m_DobberControls_ArmTrap;
     public struct DobberControlsActions
@@ -616,6 +637,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Run => m_Wrapper.m_DobberControls_Run;
         public InputAction @Sneak => m_Wrapper.m_DobberControls_Sneak;
         public InputAction @Interact => m_Wrapper.m_DobberControls_Interact;
+        public InputAction @InteractAlt => m_Wrapper.m_DobberControls_InteractAlt;
         public InputAction @Attack => m_Wrapper.m_DobberControls_Attack;
         public InputAction @ArmTrap => m_Wrapper.m_DobberControls_ArmTrap;
         public InputActionMap Get() { return m_Wrapper.m_DobberControls; }
@@ -639,6 +661,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnInteract;
+                @InteractAlt.started -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnInteractAlt;
+                @InteractAlt.performed -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnInteractAlt;
+                @InteractAlt.canceled -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnInteractAlt;
                 @Attack.started -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_DobberControlsActionsCallbackInterface.OnAttack;
@@ -661,6 +686,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @InteractAlt.started += instance.OnInteractAlt;
+                @InteractAlt.performed += instance.OnInteractAlt;
+                @InteractAlt.canceled += instance.OnInteractAlt;
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
@@ -758,6 +786,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnSneak(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnInteractAlt(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnArmTrap(InputAction.CallbackContext context);
     }

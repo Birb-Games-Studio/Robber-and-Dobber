@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{5408712d-fa2f-4283-8227-205fe6f78f2b}">
+		<property name="assetPath">
+			<value>DobberFootStep01.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.44408163265306122</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5c21dfcb-7f86-4b87-98a5-096d547abb08}</destination>
+		</relationship>
+	</object>
+</objects>
