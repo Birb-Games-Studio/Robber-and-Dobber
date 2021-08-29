@@ -1,17 +1,13 @@
-Here you go source code do what ever you wanna to, you can use any assets from the game in your project
+Source code for the game in case you wanna see what makes this tick, or wanna help out with making of Robber And Dobber.
 
+This project uses [FMOD](https://fmod.com/download), with out it sound will be broken (currently we have only footsteps).
 
-
-
-
-
-
-
-Robber And Dobber was going to be a mix of Neighbours from Hell​​ and Untitled Goose Game​.
+____________________________________________________________________________________________________________________________________________________________
+Robber And Dobber was going to be a mix of [Neighbours from Hell](https://store.steampowered.com/app/260750/Neighbours_from_Hell_Compilation/) and [Untitled Goose Game](https://goose.game).
 Idea was to be a grebe named Dobber, Dobber lives with an old man named Ron, he is a war veteran and has some interesting tings stuffed around the house.
-One day Ron goes out to get his medication but while he is away you notice from the window that someone is trying to open the door, it must be a robber!​​
+One day Ron goes out to get his medication but while he is away you notice from the window that someone is trying to open the door, it must be a robber!
 
-You walk around the house searching for items that can be used as traps.
+You walk around the house searching for items that can be used as traps. and try getting rid of that robber.
 
 
 
